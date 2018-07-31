@@ -28,6 +28,9 @@ RUN apt-get install -y postgresql-9.3-postgis-2.1 postgis
 # Open port 5432 so linked containers can see them
 EXPOSE 5432
 
+# Add ESRI the st_geometry.so file
+ADD st_geometry.so //usr/lib/postgresql/9.3/lib/st_geometry.so
+
 # Run any additional tasks here that are too tedious to put in
 # this dockerfile directly.
 ADD setup.sh /setup.sh
